@@ -1,14 +1,18 @@
 <template>
   <div class="home t-al-center">
     <h1 class="f-s-36px f-w-bold">Home Page</h1>
-    {{results}}
+    <DisplayGIf :gifData="results.data"/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import DisplayGIf from '@/components/DisplayGIf.vue'
 export default {
   name: 'home',
+  components: {
+    DisplayGIf
+  },
   data () {
     return {
       results: []

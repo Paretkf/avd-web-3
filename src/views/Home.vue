@@ -15,11 +15,18 @@ export default {
   },
   data () {
     return {
-      results: []
+      results: {
+        data: {
+          data: []
+        }
+      },
+      apiKey: '2jDWxGFa3ks3pUPg2ZbkMlLYRRWkddz1',
+      search: 'jisoo'
     }
   },
   async mounted () {
-    this.results = await axios.get('https://api.giphy.com/v1/gifs/search?api_key=2jDWxGFa3ks3pUPg2ZbkMlLYRRWkddz1&q=kitty&limit=25&offset=0&rating=G&lang=en')
+    // this.results = await axios.get('https://api.giphy.com/v1/gifs/search?api_key='+ this.apiKey + '&q=' + this.search +'&limit=25&offset=0&rating=G&lang=en')
+    this.results = await axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${this.apiKey}&q=${this.search}&limit=25&offset=0&rating=G&lang=en`)
     console.log('results', this.results)
   }
 }
